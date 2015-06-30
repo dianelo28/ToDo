@@ -11,11 +11,28 @@
 
 	// });
 
+ 	var toDoTemplate = _.template($('#toDo-template').html());
+
+ 	var toDo = [
+ 		{item_name: "Go to gym", description: "Sign up for class on Classpass"},
+ 		{item_name: "Pack", description: "For the weekend in Carmel"},
+ 		{item_name: "Shop", description: "For Dinosaur named Fluffy"}
+ 	];
+
+ 	_.each(toDo, function (toDoAdd, index) {
+ 	  var $toDoAdd = $(toDoTemplate(toDoAdd));
+ 	  $toDoAdd.attr('data-index', index);
+ 	  $list.append($toDoAdd);
+ 	});
+
 	$newItem.on('submit', function(event) {
 		event.preventDefault();
-		$('#to_do').append($("<dt></dt>").text($itemName.val()));
-		$('#to_do').append($("<dd></dd>").text($description.val()));
+		var $newToDo = $(toDoTemplate({item_name:$itemName.val(), description:$description.val()}));
+		$list.append($newToDo);
+		// $('#to_do').append($("<dt></dt>").text($itemName.val()));
+		// $('#to_do').append($("<dd></dd>").text($description.val()));
 		$("form").trigger("reset");
+		$('#item_name').focus();
 
 	});
 
@@ -48,7 +65,7 @@
  	// deletes when clicked
 	$("#to_do").on("click","dt",function(event){
 		$(this).fadeOut('slow');
-		$(this).empty();
+		$(this).remove();
 	});
 
 	$('#to_do').on('mouseenter','dt',function(){
@@ -70,7 +87,7 @@
  	// deletes when clicked
  	$("#to_do").on("click","dd",function(event){
 		$(this).fadeOut('slow');
-		$(this).empty();
+		$(this).remove();
 	});
 
 	$('#to_do').on('mouseenter','dd',function(){
