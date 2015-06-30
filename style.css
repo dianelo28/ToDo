@@ -1,0 +1,31 @@
+ .done {
+ 	text-decoration: line-through;
+ 	color:grey;
+ }
+
+.form-group {
+	display:inline;
+}
+
+.btn {
+	background-color: #00B8E6;
+	font-weight: bold;
+	border:1px solid black;
+
+}
+
+h1{
+	font-weight: bold;
+	font-family: Impact, fantasy;
+}
+
+dt {
+	font-size: 20px;
+	margin-bottom: 2px;
+	display: list-item;
+    list-style-type: circle;
+}
+
+dd {
+	margin-bottom: 5px;
+}
