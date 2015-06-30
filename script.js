@@ -3,10 +3,9 @@
 	var $newItem = $('#new_shopping_item');
 	var $itemName = $('#item_name');
 	var $list = $('#to_do');
-	var $description = $('#description')
-	var $completeTask = $("dt")
-	var $completeDescription = $("dd")
-
+	var $description = $('#description');
+	var $completeTask = $("dt");
+	var $completeDescription = $("dd");
 
 	// $newItem.submit(function(){
 
@@ -39,14 +38,45 @@
 
 	// });
 
+ 	//Strikes out Task when clicked
+
+	// $("#to_do").on("click","dt",function(event){
+	// 	console.log($(this).text());
+	// 	$(this).addClass('done');
+	// });
+
+ 	// deletes when clicked
 	$("#to_do").on("click","dt",function(event){
-		console.log($(this).text());
-		$(this).addClass('done');
+		$(this).empty();
 	});
 
-	$("#to_do").on("click","dd",function(event){
-		console.log($(this).text());
-		$(this).addClass('done');
+	$('#to_do').on('mouseenter','dt',function(){
+		$(this).fadeTo('fast',0.25);
+	});
+
+	$('#to_do').on('mouseleave','dt',function(){
+		$(this).fadeTo('fast',1);
+	});
+
+
+ 	//Strikes out description when clicked
+
+	// $("#to_do").on("click","dd",function(event){
+	// 	console.log($(this).text());
+	// 	$(this).addClass('done');
+	// });
+
+ 	// deletes when clicked
+ 	$("#to_do").on("click","dd",function(event){
+		$(this).empty();
+	});
+
+	$('#to_do').on('mouseenter','dd',function(){
+		$(this).fadeTo('fast',0.25);
+	});
+
+	$('#to_do').on('mouseleave','dd',function(){
+		$(this).fadeTo('fast',1);
 	});
 
 });
