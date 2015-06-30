@@ -47,6 +47,7 @@
 
  	// deletes when clicked
 	$("#to_do").on("click","dt",function(event){
+		$(this).fadeOut('slow');
 		$(this).empty();
 	});
 
@@ -68,6 +69,7 @@
 
  	// deletes when clicked
  	$("#to_do").on("click","dd",function(event){
+		$(this).fadeOut('slow');
 		$(this).empty();
 	});
 
